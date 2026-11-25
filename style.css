@@ -1,13 +1,13 @@
 :root {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --surface-hover: #334155;
-  --primary: #38bdf8;
-  --primary-dark: #0284c7;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --border: #334155;
-  --danger: #ef4444;
+  --bg: #F5EEDD;           /* Merino - warm cream background */
+  --surface: #ffffff;      /* Crisp card/input surface */
+  --surface-hover: #84B3CE;/* Rock Blue - soft blue accent */
+  --primary: #16587B;      /* Venice Blue - primary brand & buttons */
+  --primary-dark: #0f3f59; /* Deeper Venice Blue for hover */
+  --text: #16587B;         /* Venice Blue - high-contrast primary text */
+  --muted: #4b7994;        /* Muted blue-slate for secondary text */
+  --border: #84B3CE;       /* Rock Blue - borders & dividers */
+  --danger: #c0392b;       /* Warm red that pairs well with Merino */
 }
 
 * {
@@ -54,11 +54,15 @@ header p {
   min-width: 240px;
   padding: 0.9rem 1.2rem;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   background: var(--surface);
   color: var(--text);
   font-size: 1rem;
   outline: none;
+}
+
+.search-container input::placeholder {
+  color: var(--muted);
 }
 
 .search-container input:focus {
@@ -73,26 +77,27 @@ header p {
 .pill {
   padding: 0.7rem 1rem;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   background: var(--surface);
-  color: var(--muted);
+  color: var(--primary);
   cursor: pointer;
   font-size: 0.9rem;
+  font-weight: 500;
   transition: 0.2s;
 }
 
 .pill.active,
 .pill:hover {
   background: var(--primary);
-  color: #0f172a;
+  color: #F5EEDD;
   font-weight: 600;
   border-color: var(--primary);
 }
 
 /* Upload Box */
 .upload-box {
-  background: var(--surface);
-  border: 2px dashed var(--border);
+  background: rgba(132, 179, 206, 0.2); /* Soft Rock Blue tint */
+  border: 2px dashed var(--primary);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2.5rem;
@@ -109,23 +114,27 @@ header p {
 }
 
 .upload-box input[type="file"] {
-  color: var(--muted);
+  color: var(--text);
   font-size: 0.9rem;
 }
 
 .upload-box input[type="text"] {
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--bg);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
   color: var(--text);
   font-size: 0.95rem;
+}
+
+.upload-box input[type="text"]::placeholder {
+  color: var(--muted);
 }
 
 .btn-upload {
   padding: 0.75rem 1.5rem;
   background: var(--primary);
-  color: #0f172a;
+  color: #F5EEDD;
   border: none;
   border-radius: 8px;
   font-weight: 700;
@@ -135,7 +144,7 @@ header p {
 
 .btn-upload:hover {
   background: var(--primary-dark);
-  color: white;
+  color: #F5EEDD;
 }
 
 /* Stats Bar */
@@ -157,23 +166,24 @@ header p {
 
 .card {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
   transform: translateY(-3px);
   border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(22, 88, 123, 0.12);
 }
 
 .media-wrapper {
   width: 100%;
   height: 190px;
-  background: #020617;
+  background: #16587B; /* Venice Blue media frame */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,8 +201,8 @@ header p {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(15, 23, 42, 0.85);
-  color: var(--primary);
+  background: #16587B;
+  color: #F5EEDD;
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
   font-size: 0.75rem;
@@ -212,6 +222,7 @@ header p {
 .card-title {
   font-weight: 600;
   font-size: 0.95rem;
+  color: var(--primary);
   word-break: break-word;
 }
 
@@ -226,7 +237,7 @@ header p {
   justify-content: space-between;
   align-items: center;
   padding-top: 0.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(132, 179, 206, 0.45);
   font-size: 0.75rem;
   color: var(--muted);
 }
@@ -237,6 +248,7 @@ header p {
   color: var(--danger);
   cursor: pointer;
   font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .btn-delete:hover {
