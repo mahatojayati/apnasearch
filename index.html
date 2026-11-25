@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Media Search Engine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>MediaVault Search</h1>
+    <p>Upload personal photos & videos and search them instantly in your browser</p>
+  </header>
+
+  <!-- Search & Filter Controls -->
+  <div class="search-container">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search by description, event, tags, or file name (e.g., 'beach sunset 2026')..."
+    />
+    <div class="filter-pills">
+      <button class="pill active" data-filter="all">All</button>
+      <button class="pill" data-filter="image">Photos</button>
+      <button class="pill" data-filter="video">Videos</button>
+    </div>
+  </div>
+
+  <!-- Upload Section -->
+  <form class="upload-box" id="uploadForm">
+    <input type="file" id="fileInput" accept="image/*,video/*" multiple required />
+    <input
+      type="text"
+      id="descInput"
+      placeholder="Describe these files (e.g., 'Birthday party in Lucknow with family')"
+      required
+    />
+    <button type="submit" class="btn-upload">Upload & Index</button>
+  </form>
+
+  <div class="stats-bar">
+    <span id="resultCount">Loading media...</span>
+    <span>Stored locally in your browser (IndexedDB)</span>
+  </div>
+
+  <!-- Search Results Grid -->
+  <main class="grid" id="mediaGrid"></main>
+
+  <script src="script.js"></script>
+</body>
+</html>
